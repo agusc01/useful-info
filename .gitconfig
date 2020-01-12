@@ -1,0 +1,138 @@
+[user]
+
+	name = Agustin
+	email = itisanible@gmail.com
+
+[core]
+
+	#Here's the link to use any editor to make a 'commit'
+	#https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Setup-and-Config
+	editor = code --wait
+
+[alias]
+	#Note: For me 'd1' and 'd2' means "development 1" and "development 2"
+
+	glist = config --global --list
+	cg = config --global
+
+	#About checkout
+	co = checkout
+	cod1 = checkout d1
+	cod2 = checkout d2
+	com = checkout master
+
+	#About branches
+	b = branch
+	bon = branch -m #That's means 'branch old_name new_name'
+	nbco = checkout -b #Here I create a new 'branch' and 'checkout'
+	nbcod1 = checkout -b d1
+	nbcod2 = checkout -b d2
+	#'branch -d' means delete a branch with one confirmation
+	#'branch -D' means delete a branch WITHOUT confirmation
+	rmb = branch -d
+	rmB = branch -D
+	rmbd1 = branch -d d1
+	rmBd1 = branch -D d1
+	rmbd2 = branch -d d2
+	rmBd2 = branch -D d2
+	rmrob = push origin --delete #To delete the remote information
+	rmrobd1 = push origin --delete d1
+	rmrobd2 = push origin --delete d2 
+
+	#Here alias to print the 'logs' 
+	#--oneline It's to see less information
+	#--decorete (I don't know, I can't see the difference)
+	#--all It's nice because you can see all commits, after or before of your branch
+	#--stat You can see how much words and files you created or deleted in the commits
+	#--graph It's very nice when you have branches
+	#--pretty It's nice, but you need to set it up and it's not easy
+	lod = log --oneline --decorate
+	lods = log --oneline --decorate --stat
+	loda = log --oneline --decorate --all
+	lodas = log --oneline --decorate --all --stat
+	lodg = log --oneline --decorate --graph
+	lodag = log --oneline --decorate --all --graph
+	lodags = log --oneline --decorate --all --graph --stat
+	rf = reflog
+	lodagp = log --oneline --decorate --all --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
+	lodagsp = log --oneline --decorate --all --graph --stat --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
+
+	#About generic information
+	s-s =status -s 
+	s = status #You will have all the information with this command
+	ad = add . #You will add all the information to the staging
+	rad = restore --staged .
+	c = clone
+	d = diff
+	t = tag
+	sw = show
+
+	#About commits !
+	ct = commit
+	cta = commit -a
+	ctm = commit -m
+	ctam = commit -a -m
+
+	#About Stash, that's important that you know it
+	sh = stash
+	sha = stash apply
+	shll = stash list
+	shd = stash drop
+
+	#CHERRY-PICK Very important  !! I'll put useful information later
+	cpk = cherry-pick
+
+	#About 'push' information to store remotely
+	#--force it's means send Yes or Yes !
+	#--tags it's means send your tags to remote
+	puom = push -u origin master
+	puomt = push -u origin master --tags
+	puomf = push -u origin master --force
+	puomtf = push -u origin master --tags --force
+	puod1 = push -u origin d1
+	puod1t = push -u origin d1 --tags
+	puod1f = push -u origin d1 --force
+	puod1tf = push -u origin d1 --force --tags
+	puod2 = push -u origin d2
+	puod2t = push -u origin d2 --tags
+	puod2f = push -u origin d2 --force
+	puod2tf = push -u origin d2 --force --tags
+
+	#Shortcuts of basic things 
+	me = merge
+	fe = fetch
+	pll = pull
+
+	#About find a good-commit
+	bis = bisect start
+	bib = bisect bad
+	big = bisect good
+
+	#That's not nice but it's useful information that you need to know it
+	rth = reset -hard
+	rts = reset -soft
+
+	#Then I'll put useful information about this command
+	rmall = filter-branch --tree-filter
+
+	#About URL-information
+	re = remote
+	re-v = remote -v #To see the 'URL' of 'push' and 'pull'
+	surl = remote set-url #To set up the 'URL'
+	surlo = remote set-url origin #To set up the 'URL' with the 'origin'
+	rmurl = remote rm #To delete the 'URL'
+	rmurlo = remote rm origin #To delete the 'URL-origin'
+	aurl = remote add #To add the 'URL'
+	aurlo = remote add origin #To add the 'URL' with the 'origin'
+
+	#About submodules. It's good when you work with colleagues
+	suba = submodule add -b
+	subi = submodule init
+	subu = submodele update
+
+[credential]
+
+	#This always asks me for credentials,
+	#that helps when you use more than one git account
+	interactive = always 
+	

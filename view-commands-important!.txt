@@ -1,0 +1,74 @@
+For windows
+
+link (Spanish): https://www.xataka.com/basics/comandos-basicos-para-dar-tus-primeros-pasos-consola-windows-cmd
+
+tree /?
+findstr /? (It's like 'grep' in linux). Note: use '//' because with '/' it doesn't work
+
+
+==========================================================
+For MINGW64(bash git)
+
+tree.com (ugly)
+tree.com //A (nice)
+findstr /? (It's like 'grep' in linux). Note: use '//' because with '/' it doesn't work
+
+==========================================================
+For linux
+
+find / -name <nombreABuscar>
+
+ping
+
+whatis
+whereis
+whoiam
+
+man
+help
+
+wc (!important, nice command)
+
+cd
+ls -al
+tree
+grep -i
+pwd (print work directory)
+
+mkdir
+rmdir (delete empty directory)
+mv (move or copy)
+cp
+rm -rf (be careful, you can't undo)
+
+htop
+top
+ps 
+kill -9 <value of ps>
+
+iwconfig
+ifconfig
+iconfig
+lsusb
+lspci
+
+nano
+touch
+cat
+more
+less
+head -20
+tail
+
+
+Useful links: (Spanish, sorry)
+	https://www.computerhope.com/unix.htm
+	https://www.cesareox.com/docencia/apuntes/linux/
+	http://info.nachodigital.com.ar/lib/exe/fetch.php?media=tutorial.linux.pdf
+
+
+==========================================================
+Git-bash
+
+help -a (this command it's very important !)
+help -g

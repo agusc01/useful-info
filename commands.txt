@@ -1,0 +1,58 @@
+################################## LINUX ##################################
+
+find / -name <fileName>
+ping -n 1
+whatis
+whereis
+whoiam
+apropos search
+apropos editor
+tree
+grep
+pwd
+wc (!important, nice command)
+mkdir
+rmdir (delete empty directory)
+mv (move or copy)
+cp
+rm -rf (be careful, you can't undo)
+htop
+top
+ps 
+kill -9 <value of ps>
+iwconfig
+ifconfig
+iconfig
+lsusb
+lspci
+nano
+touch
+cat
+more
+less
+head -20
+tail
+
+Useful links:
+	https://www.computerhope.com/unix.htm
+	https://www.cesareox.com/docencia/apuntes/linux/
+	http://info.nachodigital.com.ar/lib/exe/fetch.php?media=tutorial.linux.pdf
+
+
+##################################### WINDOWS #####################################
+
+Useful links: 
+	https://www.xataka.com/basics/comandos-basicos-para-dar-tus-primeros-pasos-consola-windows-cmd
+	https://www.computerhope.com/unix.htm
+
+tree /?
+findstr /? (It's like 'grep' in linux). Note: use '//' because with '/' it doesn't work
+
+############################### GIT-BASH (MINGW64) ###############################
+
+help -a (this command it's very important !)
+help -g
+
+tree.com (ugly)
+tree.com //A (nice)
+findstr /? (It's like 'grep' in linux). Note: use '//' because with '/' it doesn't work
