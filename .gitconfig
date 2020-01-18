@@ -7,7 +7,9 @@
 
 	#Here's the link to use any editor to make a 'commit'
 	#https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Setup-and-Config
-	editor = code --wait
+	#editor = code --wait #for VScode
+	editor = 'C:/Program Files/Sublime Text 3/sublime_text.exe' -w
+
 
 [alias]
 	#Note: For me 'd1' and 'd2' means "development 1" and "development 2"
