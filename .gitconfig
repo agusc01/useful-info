@@ -105,6 +105,12 @@
 	fe = fetch
 	pll = pull
 
+	#About merge (localy)
+	mem = merge master
+	med1 = merge d1
+	med2 = merge d2
+	meo = origin
+
 	#About find a good-commit
 	bis = bisect start
 	bib = bisect bad
