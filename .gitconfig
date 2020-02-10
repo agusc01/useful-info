@@ -60,12 +60,54 @@
 	lodagsp = log --oneline --decorate --all --graph --stat --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
 
 	#About generic information
-	s-s =status -s 
+	s-s =status -s #short form
 	s = status #You will have all the information with this command
+
+
+	# 4 (commit) - 3 (staged) - 2 (unstaged) - 1 (clean)
+	# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
+	# 4 -> 2 [$git reset HEAD~1] to pass "commit" to "unstaged"
+	
+	#DANGEROUS !
+	# 4 -> 1 [$git reset --hard HEAD~1] to pass "commit" to "clean"
+	#DANGEROUS !
+
+	# 3 -> 2 [$git restore --staged index.html] to pass "staged" to "unstaged"
+	# 2 -> 1 [$git restore index.html] to pass "unstaged" to "clean"
+
+
 	ad = add . #You will add all the information to the staging
-	rad = restore --staged .
+
+	rad = restore --staged . #also : $git reset HEAD .
+	
+	#When you want to restore to unstaged files to untracked
+	rut = restore . # also : $git checkout -- .
+
+
+	staged-to-unstaged = restore --staged #also : $git reset HEAD
+	unstaged = restore --staged #also : $git reset HEAD
+	stu = restore --staged #also : $git reset HEAD
+
+	unstaged-to-clean = restore # also : $git checkout --
+	utc = restore # also : $git checkout --
+	clean = restore # also : $git checkout --
+
+
 	c = clone
+
+	# diff part
 	d = diff
+
+	#Shows the changes between the Staging Area and the HEAD:
+	#$ git diff --staged - or - $ git diff --cached - or - $ git status -v
+	ds = diff --staged
+
+	#Shows all the changes between the Working Directory and the HEAD:
+	#$ git diff HEAD - or - $ git status -vv
+	dh = diff HEAD
+
+	# information in : https://www.shellhacks.com/git-diff-staged-unstaged-files/
+
 	t = tag
 	sw = show
 
@@ -104,6 +146,7 @@
 	me = merge
 	fe = fetch
 	pll = pull
+	download = pull
 
 	#About merge (localy)
 	mem = merge master
