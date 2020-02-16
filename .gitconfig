@@ -12,178 +12,207 @@
 	#editor = '/opt/sublime_text/sublime_text' -w
 
 [alias]
-	#Note: For me 'd1' and 'd2' means "development 1" and "development 2"
 
-	glist = config --global --list
-	cg = config --global
+	#============================================= BASIC ============================================
 
-	#About checkout
-	co = checkout
-	cod1 = checkout d1
-	cod2 = checkout d2
-	com = checkout master
-	coh = checkout HEAD
+		#Note: For me 'd1' and 'd2' means "development 1" and "development 2"
 
-	#About branches
-	b = branch
-	bon = branch -m #That's means 'branch old_name new_name'
-	nbco = checkout -b #Here I create a new 'branch' and 'checkout'
-	nbcod1 = checkout -b d1
-	nbcod2 = checkout -b d2
-	#'branch -d' means delete a branch with one confirmation
-	#'branch -D' means delete a branch WITHOUT confirmation
-	rmb = branch -d
-	rmB = branch -D
-	rmbd1 = branch -d d1
-	rmBd1 = branch -D d1
-	rmbd2 = branch -d d2
-	rmBd2 = branch -D d2
-	rmrob = push origin --delete #To delete the remote information
-	rmrobd1 = push origin --delete d1
-	rmrobd2 = push origin --delete d2 
+		glist = config --global --list
+		cg = config --global
 
-	#Here alias to print the 'logs' 
-	#--oneline It's to see less information
-	#--decorete (I don't know, I can't see the difference)
-	#--all It's nice because you can see all commits, after or before of your branch
-	#--stat You can see how much words and files you created or deleted in the commits
-	#--graph It's very nice when you have branches
-	#--pretty It's nice, but you need to set it up and it's not easy
-	lod = log --oneline --decorate
-	lods = log --oneline --decorate --stat
-	loda = log --oneline --decorate --all
-	lodas = log --oneline --decorate --all --stat
-	lodg = log --oneline --decorate --graph
-	lodag = log --oneline --decorate --all --graph
-	lodags = log --oneline --decorate --all --graph --stat
-	rf = reflog
-	lodagp = log --oneline --decorate --all --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
-	lodagsp = log --oneline --decorate --all --graph --stat --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
+		sw = show
 
-	#About generic information
-	s-s =status -s #short form
-	s = status #You will have all the information with this command
+	#============================================= CHECKOUT ============================================
+
+		#About checkout
+		co = checkout
+		cod1 = checkout d1
+		cod2 = checkout d2
+		com = checkout master
+		coh = checkout HEAD
+
+	#============================================= BRANCHES ============================================
+
+		#About branches
+		b = branch
+		bon = branch -m #That's means 'branch old_name new_name'
+		nbco = checkout -b #Here I create a new 'branch' and 'checkout'
+		nbcod1 = checkout -b d1
+		nbcod2 = checkout -b d2
+		#'branch -d' means delete a branch with one confirmation
+		#'branch -D' means delete a branch WITHOUT confirmation
+		rmb = branch -d
+		rmB = branch -D
+		rmbd1 = branch -d d1
+		rmBd1 = branch -D d1
+		rmbd2 = branch -d d2
+		rmBd2 = branch -D d2
+		rmrob = push origin --delete #To delete the remote information
+		rmrobd1 = push origin --delete d1
+		rmrobd2 = push origin --delete d2 
 
 
-	# 4 (commit) - 3 (staged) - 2 (unstaged) - 1 (clean/nothing to commit/untracked)
-	# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
-	# 4 -> 2 [$git reset HEAD~1] to pass "commit" to "unstaged"
+	#============================================= LOGS ============================================
+
+		#Here alias to print the 'logs' 
+		#--oneline It's to see less information
+		#--decorete (I don't know, I can't see the difference)
+		#--all It's nice because you can see all commits, after or before of your branch
+		#--stat You can see how much words and files you created or deleted in the commits
+		#--graph It's very nice when you have branches
+		#--pretty It's nice, but you need to set it up and it's not easy
+		lod = log --oneline --decorate
+		lods = log --oneline --decorate --stat
+		loda = log --oneline --decorate --all
+		lodas = log --oneline --decorate --all --stat
+		lodg = log --oneline --decorate --graph
+		lodag = log --oneline --decorate --all --graph
+		lodags = log --oneline --decorate --all --graph --stat
+		rf = reflog
+		lodagp = log --oneline --decorate --all --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
+		lodagsp = log --oneline --decorate --all --graph --stat --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen%cr%Creset %C(cyan)%an%Creset %gn'
+
+	#============================================= STATUS ============================================
+
+		s-s = status -s #short form
+		s = status #You will have all the information with this command
+
+	#=================================== REPENTANCE (ARRPENTIMIENTO) ==================================
+
+		# 4 (commit) - 3 (staged) - 2 (unstaged) - 1 (clean/nothing to commit/untracked)
+
+		# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
+		# 4 -> 2 [$git reset HEAD~1] to pass "commit" to "unstaged"
+		
+		#DANGEROUS ! # 4 -> 1 [$git reset --hard HEAD~1] to pass "commit" to "clean"
+
+		# 3 -> 2 [$git restore --staged index.html] to pass "staged" to "unstaged"
+		# 2 -> 1 [$git restore index.html] to pass "unstaged" to "clean"
+
+		ad = add . #You will add all the information to the staging (staged form)
+	  
+		# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
+		ct-soft-h = git reset --soft HEAD~1
+
+		# 3 -> 2 (staged -> unstaged)
+		unstaged = restore --staged #also : $git reset HEAD
+
+		#When you want to restore to unstaged files to untracked
+		# 2 -> 1 (unstaged -> clean/nothing to commit/untracked)
+		clean = restore # also : $git checkout --
+
+	#============================================= CLONE ============================================
+
+		#To clone files 
+		c = clone
+
+	#============================================= DIFF ============================================
+		d = diff
+
+		# information in : https://www.shellhacks.com/git-diff-staged-unstaged-files/
+
+		#Shows the changes between the Staging Area and the HEAD:
+		#$ git diff --staged - or - $ git diff --cached - or - $ git status -v
+		ds = diff --staged
+
+		#Shows all the changes between the Working Directory and the HEAD:
+		#$ git diff HEAD - or - $ git status -vv
+		dh = diff HEAD
+
+	#============================================= TAGS ============================================
+
+		t = tag # to see all tags
+		#How to use tags
+		# git tag v0.1.0  => to assign the tag "v0.1.0" to the commit in which we are
+		# git tag v2.0 SHA1 for example:
+		# git tag v2.0 7d0829a => to assign the tag "V2.0" to the commmit "7d089a"
+		rmtag = tag -d #to delete a tag
+
+	#============================================= COMMITS ============================================
+
+		#About commits !
+		ct = commit
+		ctm = commit -m
+		ctamend = commit --amend
+		ctmamend = commit --amend -m
+
+	#============================================= STASH ============================================
+
+		#About Stash, that's important that you know it
+		sh = stash
+		sha = stash apply
+		shll = stash list
+		shd = stash drop
+
+	#========================================== CHERRY-PICK =========================================
+
+		#CHERRY-PICK Very important  !! I'll put useful information later
+		cpk = cherry-pick
+
+	#============================================== PUSH =============================================
+
+		#About 'push' information to store remotely
+		#--force it's means send Yes or Yes !
+		#--tags it's means send your tags to remote
+		puom = push -u origin master
+		puomt = push -u origin master --tags
+		puomf = push -u origin master --force
+		puomtf = push -u origin master --tags --force
+		puod1 = push -u origin d1
+		puod1t = push -u origin d1 --tags
+		puod1f = push -u origin d1 --force
+		puod1tf = push -u origin d1 --force --tags
+		puod2 = push -u origin d2
+		puod2t = push -u origin d2 --tags
+		puod2f = push -u origin d2 --force
+		puod2tf = push -u origin d2 --force --tags
+
+	#============================================== PULL =============================================
 	
-	#DANGEROUS !
-	# 4 -> 1 [$git reset --hard HEAD~1] to pass "commit" to "clean"
-	#DANGEROUS !
+		fe = fetch
+		pll = pull
+		download = pull
 
-	# 3 -> 2 [$git restore --staged index.html] to pass "staged" to "unstaged"
-	# 2 -> 1 [$git restore index.html] to pass "unstaged" to "clean"
+	#============================================== MERGE =============================================
 
+		me = merge
+		meabort = merger --abort #git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
+		#About merge (localy)
+		mem = merge master
+		med1 = merge d1
+		med2 = merge d2
+		#meo = origin #I don't remember why I put this here
 
-	ad = add . #You will add all the information to the staging (staged form)
-  
-	# 3 -> 2 (staged -> unstaged)
-	unstaged = restore --staged #also : $git reset HEAD
+	#============================================= BISECT ============================================
 
-	#When you want to restore to unstaged files to untracked
-	# 2 -> 1 (unstaged -> clean/nothing to commit/untracked)
-	clean = restore # also : $git checkout --
+		#About find a good-commit
+		bis = bisect start
+		bib = bisect bad
+		big = bisect good
 
-	#To clone files 
-	c = clone
+	#========================================== FILTER-BRANCH =========================================
 
-	# diff part
-	d = diff
+		#Then I'll put useful information about this command
+		rmall = filter-branch --tree-filter
 
+	#========================================= REMOTE COMMANDS ========================================
 
-	#=================================== DIFF ==================================
-	# information in : https://www.shellhacks.com/git-diff-staged-unstaged-files/
+		#About URL-information
+		re = remote
+		re-v = remote -v #To see the 'URL' of 'push' and 'pull'
+		surl = remote set-url #To set up the 'URL'
+		surlo = remote set-url origin #To set up the 'URL' with the 'origin'
+		rmurl = remote rm #To delete the 'URL'
+		rmurlo = remote rm origin #To delete the 'URL-origin'
+		aurl = remote add #To add the 'URL'
+		aurlo = remote add origin #To add the 'URL' with the 'origin'
 
-	#Shows the changes between the Staging Area and the HEAD:
-	#$ git diff --staged - or - $ git diff --cached - or - $ git status -v
-	ds = diff --staged
+	#=========================================== SUBMODULES ==========================================
 
-	#Shows all the changes between the Working Directory and the HEAD:
-	#$ git diff HEAD - or - $ git status -vv
-	dh = diff HEAD
-
-
-	t = tag # to see all tags
-	#How to use tags
-	# git tag v0.1.0  => to assign the tag "v0.1.0" to the commit in which we are
-	# git tag v2.0 SHA1 for example:
-	# git tag v2.0 7d0829a => to assign the tag "V2.0" to the commmit "7d089a"
-	rmtag = tag -d #to delete a tag
-
-	sw = show
-
-	#About commits !
-	ct = commit
-	cta = commit -a
-	ctm = commit -m
-	ctam = commit -a -m
-
-	#About Stash, that's important that you know it
-	sh = stash
-	sha = stash apply
-	shll = stash list
-	shd = stash drop
-
-	#CHERRY-PICK Very important  !! I'll put useful information later
-	cpk = cherry-pick
-
-	#About 'push' information to store remotely
-	#--force it's means send Yes or Yes !
-	#--tags it's means send your tags to remote
-	puom = push -u origin master
-	puomt = push -u origin master --tags
-	puomf = push -u origin master --force
-	puomtf = push -u origin master --tags --force
-	puod1 = push -u origin d1
-	puod1t = push -u origin d1 --tags
-	puod1f = push -u origin d1 --force
-	puod1tf = push -u origin d1 --force --tags
-	puod2 = push -u origin d2
-	puod2t = push -u origin d2 --tags
-	puod2f = push -u origin d2 --force
-	puod2tf = push -u origin d2 --force --tags
-
-	#Shortcuts of basic things 
-	me = merge
-	fe = fetch
-	pll = pull
-	download = pull
-
-	#About merge (localy)
-	mem = merge master
-	med1 = merge d1
-	med2 = merge d2
-	#meo = origin #I don't remember why I put this here
-	meabort = merger --abort #git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
-
-	#About find a good-commit
-	bis = bisect start
-	bib = bisect bad
-	big = bisect good
-
-	#That's not nice but it's useful information that you need to know it
-	rth = reset -hard
-	rts = reset -soft
-
-	#Then I'll put useful information about this command
-	rmall = filter-branch --tree-filter
-
-	#About URL-information
-	re = remote
-	re-v = remote -v #To see the 'URL' of 'push' and 'pull'
-	surl = remote set-url #To set up the 'URL'
-	surlo = remote set-url origin #To set up the 'URL' with the 'origin'
-	rmurl = remote rm #To delete the 'URL'
-	rmurlo = remote rm origin #To delete the 'URL-origin'
-	aurl = remote add #To add the 'URL'
-	aurlo = remote add origin #To add the 'URL' with the 'origin'
-
-	#About submodules. It's good when you work with colleagues
-	suba = submodule add -b
-	subi = submodule init
-	subu = submodele update
+		#About submodules. It's good when you work with colleagues
+		suba = submodule add -b
+		subi = submodule init
+		subu = submodele update
 
 [credential]
 
