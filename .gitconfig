@@ -105,7 +105,13 @@
 	dh = diff HEAD
 
 
-	t = tag
+	t = tag # to see all tags
+	#How to use tags
+	# git tag v0.1.0  => to assign the tag "v0.1.0" to the commit in which we are
+	# git tag v2.0 SHA1 for example:
+	# git tag v2.0 7d0829a => to assign the tag "V2.0" to the commmit "7d089a"
+	rmtag = tag -d #to delete a tag
+
 	sw = show
 
 	#About commits !
@@ -149,7 +155,8 @@
 	mem = merge master
 	med1 = merge d1
 	med2 = merge d2
-	meo = origin
+	#meo = origin #I don't remember why I put this here
+	meabort = merger --abort #git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
 
 	#About find a good-commit
 	bis = bisect start
