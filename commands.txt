@@ -1,6 +1,24 @@
 ################################## LINUX ##################################
 
-find / -name <fileName>
+#================================= find ================================
+	find / -name <fileName>
+
+	the link: https://www.enmimaquinafunciona.com/pregunta/40369/evitar-permiso-denegado-spam-cuando-se-utiliza-el-comando-find
+
+	find . -name "filetofind" 2>/dev/null
+	╚This output sequence, which is used to report all errors, such as "Access denied" one, to the null device.
+
+
+	find . -name "filetofind" 2>&1 | grep -v 'permission denied'
+	╚ Redirect the output to grep with the investment option.
+
+#================================= grep ================================
+
+	grep
+
+	the link: https://ed.team/blog/como-buscar-dentro-de-archivos-en-linux
+
+
 ping -n 1
 whatis
 whereis
@@ -8,7 +26,7 @@ whoiam
 apropos search
 apropos editor
 tree
-grep
+
 pwd
 wc (!important, nice command)
 mkdir

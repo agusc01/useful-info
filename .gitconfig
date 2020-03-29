@@ -83,6 +83,7 @@
 
 		# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
 		# 4 -> 2 [$git reset HEAD~1] to pass "commit" to "unstaged"
+		f4t2 = reset HEAD~1
 		
 		#DANGEROUS ! # 4 -> 1 [$git reset --hard HEAD~1] to pass "commit" to "clean"
 
@@ -92,14 +93,18 @@
 		ad = add . #You will add all the information to the staging (staged form)
 	  
 		# 4 -> 3 [$git reset --soft HEAD~1] to pass "commit" to "staged"
-		ct-soft-h = git reset --soft HEAD~1
+		ct-soft-h = reset --soft HEAD~1
+		break-ct = reset --soft HEAD~1
+		f4t3 = reset -- soft HEAD~1
 
 		# 3 -> 2 (staged -> unstaged)
 		unstaged = restore --staged #also : $git reset HEAD
+		f3t2 = restore --staged
 
 		#When you want to restore to unstaged files to untracked
 		# 2 -> 1 (unstaged -> clean/nothing to commit/untracked)
 		clean = restore # also : $git checkout --
+		f2t1 = restore
 
 	#============================================= CLONE ============================================
 
